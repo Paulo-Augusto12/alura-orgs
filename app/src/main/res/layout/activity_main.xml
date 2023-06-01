@@ -9,29 +9,30 @@
         android:id='@+id/nome'
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        tools:text="Salada de frutas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
 
-        android:text="Cesta de frutas"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Laranja, Manga, Maçã e uva"
-        app:layout_constraintTop_toBottomOf="@+id/nome"
-
-        />
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        tools:text="Laranja, Manga, Maçã e uva"
+        app:layout_constraintTop_toBottomOf="@+id/nome" />
 
     <TextView
+        android:id="@+id/valor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="19.99"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        tools:text="19.99"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/description"
-
-        />
+        app:layout_constraintTop_toBottomOf="@+id/description" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
