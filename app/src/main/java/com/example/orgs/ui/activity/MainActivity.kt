@@ -3,9 +3,6 @@ package com.example.orgs.ui.activity
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orgs.R
@@ -29,6 +26,22 @@ class MainActivity : Activity() {
                     descricao = "Teste legal",
                     valor = BigDecimal(10)
                 ),
+                Produto(
+                    nome = "Teste",
+                    descricao = "Teste legal",
+                    valor = BigDecimal(10)
+                ),
+                Produto(
+                    nome = "Teste",
+                    descricao = "Teste legal",
+                    valor = BigDecimal(10)
+                ),
+                Produto(
+                    nome = "Teste",
+                    descricao = "Teste legal",
+                    valor = BigDecimal(10)
+                ),
+
                 Produto(
                     nome = "Teste 1",
                     descricao = "Teste não tão legal",
