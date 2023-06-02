@@ -27,23 +27,23 @@ class MainActivity : Activity() {
                     valor = BigDecimal(10)
                 ),
                 Produto(
-                    nome = "Teste",
+                    nome = "Teste 2",
                     descricao = "Teste legal",
                     valor = BigDecimal(10)
                 ),
                 Produto(
-                    nome = "Teste",
+                    nome = "Teste 3",
                     descricao = "Teste legal",
                     valor = BigDecimal(10)
                 ),
                 Produto(
-                    nome = "Teste",
+                    nome = "Teste 4",
                     descricao = "Teste legal",
                     valor = BigDecimal(10)
                 ),
 
                 Produto(
-                    nome = "Teste 1",
+                    nome = "Teste 5",
                     descricao = "Teste não tão legal",
                     valor = BigDecimal(30)
                 )
