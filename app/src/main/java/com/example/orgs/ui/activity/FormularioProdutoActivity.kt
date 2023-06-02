@@ -2,7 +2,6 @@ package com.example.orgs.ui.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -16,42 +15,42 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        configuraBotaoSalvar()
+    }
+
+    private fun configuraBotaoSalvar() {
         val saveButton = findViewById<Button>(R.id.saveButton)
 
         saveButton.setOnClickListener {
-
-            val campoNome = findViewById<EditText>(R.id.nome)
-
-            val campoDescricao = findViewById<EditText>(R.id.descricao)
-
-            val campoValor = findViewById<EditText>(R.id.valor)
-
-            val nome = campoNome.text.toString()
-
-            val descricao = campoDescricao.text.toString()
-
-            val valorEmTexto = campoValor.text.toString()
-
-            val valor = if (valorEmTexto.isBlank()) {
-                BigDecimal.ZERO
-            } else {
-                BigDecimal(valorEmTexto)
-            }
-
-            val produtoNovo = Produto(nome = nome, descricao = descricao, valor = valor)
-
-            val dao = ProdutosDao()
-
-            dao.adicionar(produtoNovo)
-
+            createProduct()
             Toast.makeText(this, "Produto cadastrado", Toast.LENGTH_SHORT).show()
             finish()
-            Log.i(
-                "PRODUTO CRIAÇÃO",
-                "On create: Nome: ${produtoNovo.nome} , Descrição: ${produtoNovo.descricao}, Valor: ${produtoNovo.valor}"
-            )
-
-            Log.i("PRODUTO LISTAGEM", "Lista: ${dao.buscarProdutos()}")
         }
+    }
+
+    private fun createProduct() {
+        val campoNome = findViewById<EditText>(R.id.nome)
+
+        val campoDescricao = findViewById<EditText>(R.id.descricao)
+
+        val campoValor = findViewById<EditText>(R.id.valor)
+
+        val nome = campoNome.text.toString()
+
+        val descricao = campoDescricao.text.toString()
+
+        val valorEmTexto = campoValor.text.toString()
+
+        val valor = if (valorEmTexto.isBlank()) {
+            BigDecimal.ZERO
+        } else {
+            BigDecimal(valorEmTexto)
+        }
+
+        val produtoNovo = Produto(nome = nome, descricao = descricao, valor = valor)
+
+        val dao = ProdutosDao()
+
+        dao.adicionar(produtoNovo)
     }
 }
