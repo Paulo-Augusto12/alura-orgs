@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 import com.example.orgs.R
 import com.example.orgs.dao.ProdutosDao
 import com.example.orgs.model.Produto
@@ -43,7 +44,8 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
 
             dao.adicionar(produtoNovo)
 
-
+            Toast.makeText(this, "Produto cadastrado", Toast.LENGTH_SHORT).show()
+            finish()
             Log.i(
                 "PRODUTO CRIAÇÃO",
                 "On create: Nome: ${produtoNovo.nome} , Descrição: ${produtoNovo.descricao}, Valor: ${produtoNovo.valor}"
