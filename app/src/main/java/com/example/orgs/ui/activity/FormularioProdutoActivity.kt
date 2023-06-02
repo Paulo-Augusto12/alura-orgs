@@ -17,6 +17,7 @@ class FormularioProdutoActivity : AppCompatActivity(R.layout.activity_formulario
         val saveButton = findViewById<Button>(R.id.saveButton)
 
         saveButton.setOnClickListener {
+
             val campoNome = findViewById<EditText>(R.id.nome)
 
             val campoDescricao = findViewById<EditText>(R.id.descricao)
