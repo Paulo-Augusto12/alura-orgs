@@ -11,9 +11,9 @@ import com.example.orgs.R
 import com.example.orgs.model.Produto
 
 class ListaProdutosAdapter(private val produtos: List<Produto>, private val context: Context) :
-    RecyclerView.Adapter<ListaProdutosAdapter.viewHolder>() {
+    RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
-    class viewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun vincula(produto: Produto) {
             val nome = itemView.findViewById<TextView>(R.id.nome)
             val descricao = itemView.findViewById<TextView>(R.id.description)
@@ -28,17 +28,16 @@ class ListaProdutosAdapter(private val produtos: List<Produto>, private val cont
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): viewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val inflater = LayoutInflater.from(context)
 
         val view = inflater.inflate(R.layout.produto_item, parent, false)
-        return viewHolder(view)
+        return ViewHolder(view)
     }
 
     override fun getItemCount(): Int = produtos.size
 
-    override fun onBindViewHolder(holder: viewHolder, position: Int) {
-        TODO("Not yet implemented")
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val produto = produtos[position]
 
         holder.vincula(produto)
