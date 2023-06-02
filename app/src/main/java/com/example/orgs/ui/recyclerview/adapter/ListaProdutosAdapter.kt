@@ -10,9 +10,10 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.example.orgs.R
 import com.example.orgs.model.Produto
 
-class ListaProdutosAdapter(private val produtos: List<Produto>, private val context: Context) :
+class ListaProdutosAdapter(produtos: List<Produto>, private val context: Context) :
     RecyclerView.Adapter<ListaProdutosAdapter.ViewHolder>() {
 
+    private val produtos = produtos.toMutableList()
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         fun vincula(produto: Produto) {
             val nome = itemView.findViewById<TextView>(R.id.nome)
@@ -42,6 +43,14 @@ class ListaProdutosAdapter(private val produtos: List<Produto>, private val cont
 
         holder.vincula(produto)
 
+    }
+
+    fun atualiza(produtos: List<Produto>) {
+        this.produtos.clear()
+
+        this.produtos.addAll(produtos)
+
+        notifyDataSetChanged()
     }
 
 }
