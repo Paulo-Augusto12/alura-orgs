@@ -4,10 +4,12 @@ package com.example.orgs.ui.activity
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orgs.R
+import com.example.orgs.dao.ProdutosDao
 import com.example.orgs.model.Produto
 import com.example.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -17,10 +19,26 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        val dao = ProdutosDao()
 
         val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
 
         val floatingButton = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+
+
+        recyclerView.adapter = ListaProdutosAdapter(
+            context = this,
+            produtos = dao.buscarProdutos()
+        )
+
+        Log.i("PRODUTO MAIN", "onResume:${dao.buscarProdutos()} ")
+
+        recyclerView.layoutManager = LinearLayoutManager(this)
 
         floatingButton.setOnClickListener {
 
@@ -28,40 +46,5 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
             startActivity(intent)
         }
-
-        recyclerView.adapter = ListaProdutosAdapter(
-            context = this,
-            produtos = listOf(
-                Produto(
-                    nome = "Teste",
-                    descricao = "Teste legal",
-                    valor = BigDecimal(10)
-                ),
-                Produto(
-                    nome = "Teste 2",
-                    descricao = "Teste legal",
-                    valor = BigDecimal(10)
-                ),
-                Produto(
-                    nome = "Teste 3",
-                    descricao = "Teste legal",
-                    valor = BigDecimal(10)
-                ),
-                Produto(
-                    nome = "Teste 4",
-                    descricao = "Teste legal",
-                    valor = BigDecimal(10)
-                ),
-
-                Produto(
-                    nome = "Teste 5",
-                    descricao = "Teste não tão legal",
-                    valor = BigDecimal(30)
-                )
-
-            )
-        )
-        recyclerView.layoutManager = LinearLayoutManager(this)
-
     }
 }
