@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
 
         tools:text="Salada de frutas" />
@@ -20,23 +20,45 @@
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
 
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/nome"
+        app:layout_constraintStart_toStartOf="@id/nome"
         app:layout_constraintTop_toBottomOf="@+id/nome"
-        tools:text="Laranja, Manga, Maçã e uva" />
+
+        tools:text="Laranja, Manga, Maçã e uva"
+
+
+        />
 
     <TextView
         android:id="@+id/valor"
+
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+
+        app:layout_constraintEnd_toEndOf="@id/nome"
+        app:layout_constraintStart_toStartOf="@id/nome"
         app:layout_constraintTop_toBottomOf="@+id/description"
-        tools:text="19.99" />
+
+        tools:text="19.99"
+
+        />
+
+    <ImageView
+        android:id="@+id/imageView"
+
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/nome"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:src="@android:color/holo_purple"
+
+        tools:srcCompat="@tools:sample/backgrounds/scenic"
+
+        />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
