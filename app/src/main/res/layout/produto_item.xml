@@ -55,7 +55,7 @@
         app:layout_constraintEnd_toStartOf="@+id/nome"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@android:color/holo_purple"
+        android:src="@drawable/fruta"
 
         tools:srcCompat="@tools:sample/backgrounds/scenic"
 
