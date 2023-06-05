@@ -8,10 +8,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.orgs.R
 import com.example.orgs.dao.ProdutosDao
+import com.example.orgs.databinding.ActivityListaProdutosBinding
 import com.example.orgs.ui.recyclerview.adapter.ListaProdutosAdapter
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 
-class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos) {
+class ListaProdutosActivity : AppCompatActivity() {
 
     private val dao = ProdutosDao()
     private val adapter = ListaProdutosAdapter(
@@ -19,10 +20,14 @@ class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos
         produtos = dao.buscarProdutos()
     )
 
+    private val binding by lazy {
+        ActivityListaProdutosBinding.inflate(layoutInflater)
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         configuraRecyclerView()
         configuraFloatingActionButton()
+        setContentView(binding.root)
     }
 
     override fun onResume() {
@@ -31,7 +36,7 @@ class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos
     }
 
     private fun configuraFloatingActionButton() {
-        val floatingButton = findViewById<FloatingActionButton>(R.id.floatingActionButton)
+        val floatingButton = binding.floatingActionButton
 
         floatingButton.setOnClickListener {
             navigateToProductForm()
@@ -45,7 +50,7 @@ class ListaProdutosActivity : AppCompatActivity(R.layout.activity_lista_produtos
     }
 
     private fun configuraRecyclerView() {
-        val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+        val recyclerView = binding.recyclerView
         recyclerView.adapter = adapter
 
         recyclerView.layoutManager = LinearLayoutManager(this)
