@@ -10,52 +10,68 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
+        android:ellipsize="end"
+        android:fontFamily="@font/montserrat_bold"
+        android:maxLines="1"
+        android:textSize="20sp"
+        android:textStyle="bold"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageView"
         app:layout_constraintTop_toTopOf="parent"
-
-        tools:text="Salada de frutas" />
+        tools:text="@tools:sample/lorem/random" />
 
     <TextView
         android:id="@+id/description"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:ellipsize="end"
 
+        android:fontFamily="@font/montserrat"
+        android:maxLines="1"
+
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="@id/nome"
         app:layout_constraintStart_toStartOf="@id/nome"
+
         app:layout_constraintTop_toBottomOf="@+id/nome"
 
-        tools:text="Laranja, Manga, Maçã e uva"
 
-
-        />
+        tools:text="@tools:sample/lorem/random" />
 
     <TextView
         android:id="@+id/valor"
 
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/montserrat"
+        android:textColor="@android:color/holo_green_dark"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="@id/nome"
         app:layout_constraintStart_toStartOf="@id/nome"
         app:layout_constraintTop_toBottomOf="@+id/description"
 
-        tools:text="19.99"
-
-        />
+        tools:text="19.99" />
 
     <ImageView
         android:id="@+id/imageView"
 
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:scaleType="centerCrop"
+        android:contentDescription="image"
 
+        android:scaleType="centerCrop"
+        android:src="@drawable/fruta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/nome"
         app:layout_constraintStart_toStartOf="parent"
+
         app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/fruta"
 
         tools:srcCompat="@tools:sample/backgrounds/scenic"
 
