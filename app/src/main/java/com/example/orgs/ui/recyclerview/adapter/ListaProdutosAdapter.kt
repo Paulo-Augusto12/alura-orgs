@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.orgs.databinding.ProdutoItemBinding
 import com.example.orgs.R
 import com.example.orgs.model.Produto
+import java.text.NumberFormat
+import java.util.Locale
 
 class ListaProdutosAdapter(
     produtos: List<Produto>,
@@ -17,18 +19,20 @@ class ListaProdutosAdapter(
 
     private val produtos = produtos.toMutableList()
 
-    class ViewHolder(private val binding: ProdutoItemBinding) : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(private val binding: ProdutoItemBinding) :
+        RecyclerView.ViewHolder(binding.root) {
         fun vincula(produto: Produto) {
             val nome = binding.nome
             val descricao = binding.description
             val valor = binding.valor
+            val currency: NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
 
 
             nome.text = produto.nome
 
             descricao.text = produto.descricao
 
-            valor.text = produto.valor.toPlainString()
+            valor.text = currency.format(produto.valor)
         }
     }
 
